@@ -51,29 +51,21 @@ class ViewController: UIViewController {
             
             println("Start")
             if error == nil {
-            
+                //Initialize JSON
                 let json = JSON(data:data)
-               // println(json)
+                
+                //Extract JSON Data. All value getting from JSON is a JSON object
                 let output:JSON = json["result"]["data"]["weather"][3]["info"]["day"][1]
+                
+                //Convert JSON object to String
                 let temp:String = output.stringValue
+                
+                //Initilize struct
                 var weather = Weather(city:"Beijing",weather:"Windy",temperature:"\(temp)")
                 
                 self.weatherData = weather
                 println(weather.temperature!)
-//                let json:AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-//                var jdata:AnyObject? = json?.objectForKey("result")
-               // var jrealtime:AnyObject? = jdata?.objectForKey("isForeign")
-               // var jrealtime:AnyObject? = jdata?.objectForKey("realtime")
-              //  var jcityname:AnyObject? = json?.objectForKey("city_name")
-      //          let weather:Weather?
-                //weather?.city =
-//                weather?.temperature = "abc"
-//                weather?.weather = "efg"
-//                self.weatherData = weather
-               // println(jdata)
-  //              println(jrealtime)
-//                println(json)
-//                println("test")
+
                 
             } else{
                 println("Error")
